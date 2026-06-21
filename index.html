@@ -186,6 +186,82 @@ html,body{margin:0;padding:0;}
 }
 .su-chip.link:hover{filter:brightness(1.07);}
 
+.su-flow{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px 14px 10px;
+  max-width:94%;
+  width:100%;
+}
+.su-flow-title{
+  font-weight:700;font-size:13px;color:var(--maroon-deep);
+  margin-bottom:10px;display:flex;align-items:center;gap:6px;
+}
+.su-flow-node{
+  display:flex;align-items:center;gap:10px;
+  background:var(--cream-deep);
+  border:1px solid var(--gold);
+  border-radius:10px;
+  padding:10px 12px;
+  cursor:pointer;
+  transition:.15s;
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+}
+.su-flow-node:hover{background:var(--gold-soft);}
+.su-flow-node:active{transform:scale(0.98);}
+.su-flow-node .num{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--maroon);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;
+}
+.su-flow-arrow{
+  display:flex;justify-content:center;
+  color:var(--gold);
+  font-size:15px;
+  padding:1px 0;
+}
+.su-flow-hint{font-size:10.5px;color:var(--ink-soft);text-align:center;margin-top:8px;}
+
+.su-frontgrid{
+  display:flex;
+  gap:8px;
+  width:100%;
+  max-width:96%;
+  align-items:flex-start;
+}
+.su-frontcol{
+  flex:1;
+  min-width:0;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:11px 8px;
+}
+.su-frontcol-title{
+  font-weight:700;
+  font-size:11.5px;
+  color:var(--maroon-deep);
+  margin-bottom:8px;
+  display:flex;align-items:center;gap:4px;
+  line-height:1.3;
+}
+.su-flow-node.compact{
+  padding:7px 8px;
+  font-size:11px;
+  gap:6px;
+  margin-bottom:6px;
+  line-height:1.3;
+}
+.su-flow-node.compact .num{
+  width:17px;height:17px;font-size:9.5px;
+}
+.su-flow-arrow.compact{font-size:12px;padding:0;}
+.su-frontcol .su-flow-hint{margin-top:6px;font-size:9.5px;}
+
 /* INPUT */
 .su-inputbar{
   flex-shrink:0;
@@ -333,7 +409,9 @@ var UI = {
     greeting:"Namaste! 🙏 I'm a helper for Maharashtra's CAP admissions (Engineering, Pharmacy, Architecture, Management, MCA & more — UG & PG). Tap a topic below, or type your question in English, Hindi or Marathi.",
     disclaimer:"ℹ️ Based on the State CET Cell's Information Brochure 2025-26. Application fees, schedule dates and certificate validity windows may change for 2026-27 — always confirm on mahacet.org before applying.",
     moreHelp:"Need anything else?",
-    cutoffTab:"📊 Last Year's Cutoff (Official Site) ↗"
+    cutoffTab:"📊 Last Year's Cutoff (Official Site) ↗",
+    flowTitle:"🗺️ Admission Process at a Glance",
+    flowHint:"Tap any stage for details"
   },
   hi:{
     title:"महाराष्ट्र CAP — UG/PG प्रवेश सहायता केंद्र",
@@ -347,7 +425,9 @@ var UI = {
     greeting:"नमस्ते! 🙏 मैं महाराष्ट्र की CAP प्रवेश प्रक्रिया (इंजीनियरिंग, फार्मेसी, आर्किटेक्चर, मैनेजमेंट, MCA व अन्य — UG व PG) में मदद करता हूँ। नीचे दिए गए विषयों में से चुनें, या अपना प्रश्न अंग्रेज़ी, हिंदी या मराठी में टाइप करें।",
     disclaimer:"ℹ️ यह जानकारी स्टेट सीईटी सेल की 'Information Brochure 2025-26' पर आधारित है। आवेदन शुल्क, शेड्यूल तिथियां और प्रमाणपत्रों की वैधता अवधि 2026-27 के लिए बदल सकती है — आवेदन से पहले हमेशा mahacet.org पर पुष्टि करें।",
     moreHelp:"कुछ और जानना है?",
-    cutoffTab:"📊 पिछले साल का कटऑफ (आधिकारिक साइट) ↗"
+    cutoffTab:"📊 पिछले साल का कटऑफ (आधिकारिक साइट) ↗",
+    flowTitle:"🗺️ प्रवेश प्रक्रिया एक नज़र में",
+    flowHint:"विवरण के लिए किसी भी चरण पर टैप करें"
   },
   mr:{
     title:"महाराष्ट्र CAP — UG/PG प्रवेश मदत केंद्र",
@@ -361,7 +441,9 @@ var UI = {
     greeting:"नमस्कार! 🙏 मी महाराष्ट्राच्या CAP प्रवेश प्रक्रियेत (अभियांत्रिकी, फार्मसी, आर्किटेक्चर, मॅनेजमेंट, MCA व इतर — UG व PG) मदत करतो. खालील विषयांपैकी एक निवडा, किंवा तुमचा प्रश्न इंग्रजी, हिंदी किंवा मराठीत टाइप करा.",
     disclaimer:"ℹ️ ही माहिती स्टेट सीईटी सेलच्या 'Information Brochure 2025-26' वर आधारित आहे. अर्ज शुल्क, वेळापत्रकातील तारखा आणि प्रमाणपत्रांची वैधता २०२६-२७ साठी बदलू शकते — अर्ज करण्यापूर्वी नेहमी mahacet.org वर खात्री करा.",
     moreHelp:"आणखी काही हवे आहे का?",
-    cutoffTab:"📊 मागील वर्षीचा कटऑफ (अधिकृत साइट) ↗"
+    cutoffTab:"📊 मागील वर्षीचा कटऑफ (अधिकृत साइट) ↗",
+    flowTitle:"🗺️ प्रवेश प्रक्रिया एका दृष्टिक्षेपात",
+    flowHint:"तपशीलासाठी कोणत्याही टप्प्यावर टॅप करा"
   }
 };
 
@@ -623,7 +705,79 @@ function suSetLang(lang){
   suInput.placeholder = u.placeholder;
   if(suTTSSupported) window.speechSynthesis.cancel();
   suBody.innerHTML = "";
-  suBotSay(u.greeting, true);
+  suBotSay(u.greeting, false);
+  setTimeout(suShowFrontPage, 600);
+}
+
+// Front page shown after the greeting: a two-column layout — admission
+// process map (left, clickable stages) and the full topic list (right,
+// also clickable) — so both are visible at a glance without extra taps.
+function suShowFrontPage(){
+  var stages = [
+    {num:1, icon:"📝", topicId:"cap_process", label:{en:"Apply Online & Upload Documents", hi:"ऑनलाइन आवेदन व दस्तावेज़ अपलोड", mr:"ऑनलाइन अर्ज व कागदपत्रे अपलोड"}},
+    {num:2, icon:"✅", topicId:"documents", label:{en:"Document Verification", hi:"दस्तावेज़ सत्यापन", mr:"कागदपत्र पडताळणी"}},
+    {num:3, icon:"📊", topicId:"merit_list", label:{en:"Merit List (Provisional → Final)", hi:"मेरिट सूची (अनंतिम → अंतिम)", mr:"गुणवत्ता यादी (अनंतिम → अंतिम)"}},
+    {num:4, icon:"🗳️", topicId:"cap_process", label:{en:"Fill Option Form", hi:"ऑप्शन फॉर्म भरें", mr:"ऑप्शन फॉर्म भरा"}},
+    {num:5, icon:"🎯", topicId:"cap_rounds", label:{en:"Seat Allotment (Round I–IV)", hi:"सीट आवंटन (राउंड I–IV)", mr:"जागा वाटप (फेरी I–IV)"}},
+    {num:6, icon:"🏫", topicId:"reporting", label:{en:"Report & Confirm Seat", hi:"रिपोर्ट व सीट पुष्टि", mr:"रिपोर्ट व जागा निश्चिती"}}
+  ];
+
+  var row = document.createElement('div');
+  row.className = 'su-row bot';
+  var grid = document.createElement('div');
+  grid.className = 'su-frontgrid';
+
+  // LEFT column — process map
+  var leftCol = document.createElement('div');
+  leftCol.className = 'su-frontcol';
+  var leftTitle = document.createElement('div');
+  leftTitle.className = 'su-frontcol-title';
+  leftTitle.textContent = UI[suLang].flowTitle;
+  leftCol.appendChild(leftTitle);
+
+  stages.forEach(function(stage, idx){
+    var node = document.createElement('div');
+    node.className = 'su-flow-node compact';
+    node.innerHTML = '<span class="num">'+stage.num+'</span><span>'+stage.icon+' '+suEscape(stage.label[suLang])+'</span>';
+    node.onclick = function(){
+      var topic = TOPICS.find(function(t){ return t.id === stage.topicId; });
+      if(topic){ suUserSay(stage.icon + ' ' + stage.label[suLang]); suAnswerTopic(topic); }
+    };
+    leftCol.appendChild(node);
+    if(idx < stages.length - 1){
+      var arrow = document.createElement('div');
+      arrow.className = 'su-flow-arrow compact';
+      arrow.textContent = '↓';
+      leftCol.appendChild(arrow);
+    }
+  });
+
+  var hint = document.createElement('div');
+  hint.className = 'su-flow-hint';
+  hint.textContent = UI[suLang].flowHint;
+  leftCol.appendChild(hint);
+
+  // RIGHT column — every topic, clickable
+  var rightCol = document.createElement('div');
+  rightCol.className = 'su-frontcol';
+  var rightTitle = document.createElement('div');
+  rightTitle.className = 'su-frontcol-title';
+  rightTitle.textContent = UI[suLang].allTopics;
+  rightCol.appendChild(rightTitle);
+
+  TOPICS.forEach(function(t){
+    var item = document.createElement('div');
+    item.className = 'su-flow-node compact';
+    item.innerHTML = '<span>'+t.icon+' '+suEscape(t.label[suLang])+'</span>';
+    item.onclick = function(){ suUserSay(t.icon + ' ' + t.label[suLang]); suAnswerTopic(t); };
+    rightCol.appendChild(item);
+  });
+
+  grid.appendChild(leftCol);
+  grid.appendChild(rightCol);
+  row.appendChild(grid);
+  suBody.appendChild(row);
+  suScrollDown();
 }
 
 function suEscape(s){
@@ -825,3 +979,4 @@ suSetLang('en');
 </script>
 </body>
 </html>
+
